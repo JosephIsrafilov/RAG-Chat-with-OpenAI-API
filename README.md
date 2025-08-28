@@ -161,23 +161,6 @@ NEXT_PUBLIC_GITHUB_URL=https://github.com/your-handle
 
 ---
 
-## 📸 Screenshots
-
-Create a `docs/` folder and add screenshots:
-
-```
-docs/screenshot-1.png
-docs/screenshot-2.png
-```
-
-Reference in README:
-
-```md
-![UI](docs/screenshot-1.png)
-```
-
----
-
 ## 🛣️ Roadmap (Next Steps)
 
 - Streaming answers (SSE)
