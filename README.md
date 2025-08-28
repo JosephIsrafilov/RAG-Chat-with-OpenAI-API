@@ -1,6 +1,6 @@
 # RAG Web Chat — OpenAI + FastAPI + Next.js
 
-A minimal, interview-ready Retrieval-Augmented Generation (RAG) app:
+A minimal Retrieval-Augmented Generation (RAG) app:
 
 - Backend API: **FastAPI** with **FAISS** vector search  
 - Frontend: **Next.js (App Router)** with a clean dark UI  
