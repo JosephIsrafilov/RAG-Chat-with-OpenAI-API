@@ -1,0 +1,17 @@
+streamlit>=1.35
+openai>=1.40.0
+faiss-cpu>=1.8.0
+tiktoken>=0.7.0
+pypdf>=4.2.0
+fastapi>=0.112
+uvicorn[standard]>=0.30
+openai>=1.40.0
+faiss-cpu>=1.8.0
+numpy>=1.26
+tiktoken>=0.7.0
+pypdf>=4.2.0
+python-multipart>=0.0.9
+python-dotenv>=1.0.1
+python-docx>=1.1.2
+textract==1.6.5
+rank-bm25>=0.2.2

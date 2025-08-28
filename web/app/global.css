@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+:root{
+  --bg:#000000;
+  --panel:#0b0b10;
+  --border:#1e2230;
+  --text:#e9eef7;
+  --muted:#9aa4b2;
+  --brand:#7c5cff;
+  --brand2:#45b2ff;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:
+    radial-gradient(1200px 600px at 20% -10%, #13162b 0%, transparent 60%),
+    radial-gradient(1200px 600px at 100% 10%, #0f1222 0%, transparent 70%),
+    var(--bg);
+  color:var(--text);
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto;
+  -webkit-font-smoothing:antialiased;
+}
+.center{min-height:100vh; display:flex; align-items:center; justify-content:center; padding:32px}
+.shell{
+  width:min(100%, 1000px);
+  background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  backdrop-filter:blur(6px);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:24px;
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+.header{display:flex; align-items:center; justify-content:space-between; margin-bottom:16px}
+.title{font-weight:700; font-size:28px}
+.subtitle{color:var(--muted); font-size:14px}
+.grid{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+@media (max-width: 900px){ .grid{ grid-template-columns:1fr } }
+.card{background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:16px}
+.hstack{display:flex; gap:10px; flex-wrap:wrap}
+.btn{
+  border:none; border-radius:12px; padding:10px 14px; color:white;
+  background:linear-gradient(135deg, var(--brand), var(--brand2));
+  transition:transform .06s ease, box-shadow .2s ease;
+  box-shadow:0 6px 18px rgba(72,131,255,.25);
+}
+.btn:hover{ transform:translateY(-1px); box-shadow:0 8px 24px rgba(72,131,255,.35) }
+.btn:active{ transform:translateY(0) }
+.btn.secondary{ background:#151724; color:var(--text); border:1px solid #282c3b; box-shadow:none }
+.btn.danger{ background:#f04848; box-shadow:0 6px 18px rgba(240,72,72,.25) }
+.btn:disabled{ opacity:.6; cursor:not-allowed }
+.input,.textarea{
+  width:100%; background:#0b0d13; border:1px solid #232735; border-radius:12px; color:var(--text);
+  padding:12px 14px; outline:none;
+}
+.input:focus,.textarea:focus{ border-color:#3a67ff; box-shadow:0 0 0 3px rgba(58,103,255,.25) }
+.textarea{ min-height:44px; resize:vertical }
+.pill{ display:inline-flex; align-items:center; gap:8px; font-size:12px; padding:6px 10px; border-radius:999px;
+  background:#121523; border:1px solid #21263a; color:#a9b4cc;
+}
+.answer{ white-space:pre-wrap; line-height:1.55 }
+.src-list{ display:grid; gap:8px }
+.src{ font-size:13px; color:var(--muted) }
+.hidden-input{ display:none }
+.filebar{ display:flex; gap:8px; align-items:center; margin-top:12px }
+.filelabel{ border:1px dashed #3a3f52; background:#0f1220; color:#b7c2dc; padding:10px 14px; border-radius:12px; cursor:pointer }
+
+.footer{position:fixed;left:0;right:0;bottom:24px;display:flex;justify-content:center;z-index:40;pointer-events:none}
+.footer .btn{pointer-events:auto}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.65);display:flex;align-items:center;justify-content:center;z-index:50}
+.modal-panel{width:min(92vw,560px);background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+.modal-panel h3{margin:0 0 8px 0}
+.modal-panel p{margin:0 0 12px 0;color:var(--muted)}
+.steps{margin:8px 0 16px;padding-left:20px}
+.steps li{margin:6px 0}
+
+.social-bar{position:fixed;left:24px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;z-index:45}
+.social-icon{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(120% 120% at 50% 0,#1c2030 0,#0f1220 65%);border:1px solid #20263a;box-shadow:0 4px 18px rgba(0,0,0,.35);transition:transform .08s ease, box-shadow .2s ease, border-color .2s ease}
+.social-icon:hover{transform:translateY(-1px);border-color:#2e3b63;box-shadow:0 8px 24px rgba(72,131,255,.25)}
+.social-icon svg{width:22px;height:22px;fill:#a9b4cc}
+.social-icon.linkedin svg{fill:#7c9cff}
+.social-icon.github svg{fill:#c5d0ea}
+@media (max-width:900px){.social-bar{left:12px}.social-icon{width:38px;height:38px}.social-icon svg{width:20px;height:20px}}
