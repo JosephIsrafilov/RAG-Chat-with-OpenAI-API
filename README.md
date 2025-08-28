@@ -14,7 +14,7 @@ A minimal Retrieval-Augmented Generation (RAG) app:
 
 ---
 
-## ✨ Features
+##  Features
 
 - Upload many files: **PDF, TXT, MD, DOCX, DOC**
 - Build an in-memory FAISS index and query across **all** uploaded docs
@@ -47,7 +47,7 @@ flowchart LR
 
 ---
 
-## 🗂 Repo Structure
+##  Repo Structure
 
 ```
 server/
@@ -66,7 +66,7 @@ web/
 
 ---
 
-## 🚀 Quick Start (Local)
+##  Quick Start (Local)
 
 ### 1) Backend (FastAPI)
 
@@ -109,7 +109,7 @@ npm run dev
 
 ---
 
-## 🧪 How to Use (in the UI)
+##  How to Use (in the UI)
 
 1. **Upload** your files (PDF/TXT/MD/DOCX/DOC)  
 2. Click **Build Index** to process and index  
@@ -119,7 +119,7 @@ The “How to use” button in the footer shows this guide in-app.
 
 ---
 
-## 🔑 Environment Variables
+##  Environment Variables
 
 **Backend** (`server/.env` or shell env):
 ```
@@ -137,7 +137,7 @@ NEXT_PUBLIC_GITHUB_URL=https://github.com/your-handle
 
 ---
 
-## 📦 API Endpoints
+##  API Endpoints
 
 | Method | Path     | Body                                          | Response (200)                                   |
 |:------:|----------|-----------------------------------------------|--------------------------------------------------|
@@ -150,7 +150,7 @@ NEXT_PUBLIC_GITHUB_URL=https://github.com/your-handle
 
 ---
 
-## 📝 Notes & Troubleshooting
+##  Notes & Troubleshooting
 
 - **DOC parsing** on Windows:
   - If `pip` errors on `textract==1.6.5`, pin to `textract==1.6.4` or install with `pip<24.1`.
@@ -161,7 +161,7 @@ NEXT_PUBLIC_GITHUB_URL=https://github.com/your-handle
 
 ---
 
-## 🛣️ Roadmap (Next Steps)
+##  Roadmap (Next Steps)
 
 - Streaming answers (SSE)
 - On-disk index persistence + reload
@@ -173,12 +173,12 @@ NEXT_PUBLIC_GITHUB_URL=https://github.com/your-handle
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Issues and PRs are welcome. Keep features small and focused.
 
 ---
-## 🙌 Credits
+##  Credits
 
 - [FastAPI](https://fastapi.tiangolo.com/)
 - [FAISS](https://github.com/facebookresearch/faiss)
