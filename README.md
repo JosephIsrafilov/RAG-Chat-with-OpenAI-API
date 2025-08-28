@@ -195,13 +195,6 @@ Reference in README:
 Issues and PRs are welcome. Keep features small and focused.
 
 ---
-
-## 📄 License
-
-MIT — see `LICENSE` for details.
-
----
-
 ## 🙌 Credits
 
 - [FastAPI](https://fastapi.tiangolo.com/)
