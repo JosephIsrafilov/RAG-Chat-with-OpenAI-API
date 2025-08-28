@@ -16,13 +16,13 @@ load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 EMBED_MODEL = "text-embedding-3-large"
-GEN_MODEL = "gpt-4o-mini"
+GEN_MODEL = "gpt-4.1"
 CHUNK_TOKENS = 400
 CHUNK_OVERLAP = 60
 TOP_K_DEFAULT = 6
 
 try:
-    import textract  # type: ignore
+    import textract 
     HAS_TEXTRACT = True
 except Exception:
     HAS_TEXTRACT = False
@@ -142,29 +142,59 @@ async def upload(files: List[UploadFile] = File(...)):
 async def build():
     global embs, index
     if not docs:
-        return {"status": "no_docs"}
+        return {
+            "status": "ok",
+            "chunks": 0,
+            "message": "No documents to index. Please upload files and try again."
+        }
     texts = [c for _, c in docs]
     embs = embed_texts(texts)
     index = build_faiss(embs)
     return {"status": "ok", "chunks": len(texts)}
 
+
 @app.post("/ask")
 async def ask(payload: AskPayload):
-    if index is None:
-        return {"status": "no_index"}
+    if index is None or not docs:
+        return {
+            "status": "ok",
+            "answer": (
+                "I don't have enough information to answer. "
+                "Please upload documents and click Build Index."
+            ),
+            "sources": []
+        }
+
     if not payload.question.strip():
         return {"status": "no_question"}
-    q_emb = client.embeddings.create(model=EMBED_MODEL, input=[payload.question]).data[0].embedding
+
+    q_emb = client.embeddings.create(
+        model=EMBED_MODEL,
+        input=[payload.question]
+    ).data[0].embedding
     q_emb = np.array([q_emb], dtype="float32")
+
     top_k = payload.top_k or TOP_K_DEFAULT
+    top_k = max(1, min(top_k, len(docs))) 
+
     D, I = search(q_emb, top_k=top_k)
     idxs = I[0].tolist()
     hits = [(docs[j][0], docs[j][1]) for j in idxs]
+
     messages = make_prompt(payload.question, hits)
-    completion = client.chat.completions.create(model=GEN_MODEL, messages=messages, temperature=0.2)
+    completion = client.chat.completions.create(
+        model=GEN_MODEL,
+        messages=messages,
+        temperature=0.2
+    )
     answer = completion.choices[0].message.content
-    sources = [{"id": i+1, "file": s, "preview": t[:300]} for i, (s, t) in enumerate(hits)]
+
+    sources = [
+        {"id": i + 1, "file": s, "preview": t[:300]}
+        for i, (s, t) in enumerate(hits)
+    ]
     return {"status": "ok", "answer": answer, "sources": sources}
+
 
 @app.post("/reset")
 async def reset():

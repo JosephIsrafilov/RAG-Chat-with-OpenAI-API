@@ -2,9 +2,9 @@
 
 import { useRef, useState } from "react";
 
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
-const LINKEDIN_URL = process.env.NEXT_PUBLIC_LINKEDIN_URL || "https://www.linkedin.com";
-const GITHUB_URL = process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com";
+const API = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
+const LINKEDIN_URL = process.env.NEXT_PUBLIC_LINKEDIN_URL ?? "https://www.linkedin.com/in/yusif-israfilov-62887224a";
+const GITHUB_URL = process.env.NEXT_PUBLIC_GITHUB_URL ?? "https://github.com/JosephIsrafilov";
 
 export default function Home() {
   const [files, setFiles] = useState<FileList | null>(null);
