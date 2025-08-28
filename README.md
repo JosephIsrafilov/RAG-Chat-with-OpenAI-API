@@ -5,7 +5,7 @@ A minimal Retrieval-Augmented Generation (RAG) app:
 - Backend API: **FastAPI** with **FAISS** vector search  
 - Frontend: **Next.js (App Router)** with a clean dark UI  
 - Embeddings: **OpenAI `text-embedding-3-large`**  
-- Answers: **OpenAI `gpt-4o-mini`**
+- Answers: **OpenAI `gpt-4.1`**
 
 ![status](https://img.shields.io/badge/status-active-success)
 ![python](https://img.shields.io/badge/python-3.10+-blue)
